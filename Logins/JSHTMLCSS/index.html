@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign In/Up Page Example</title>
+        <!-- This link tag is what connects the HTML to the CSS -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://kit.fontawesome.com/cb417232de.js" crossorigin="anonymous"></script>
+</head>
+    <!-- The actual webpage content goes in the body section, it's what gets displayed -->
+    <body>
+        <div class="container">
+            <div class="form-box">
+                <h1 id="title">Sign Up</h1>
+                <form>
+                    <div class="input-group">
+                        <!-- id tags are handy when needing to hide/only show certain things to the user -->
+                        <div class="input-field" id="nameField">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Username">
+                        </div>
+                        <div class="input-field">
+                          <i class="fa-solid fa-envelope"></i>
+                            <input type="email" placeholder="Email">  
+                        </div>
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="Password">  
+                        </div>
+                        <p>Lost Password? <a href="#">Reset Here</a></p>                      
+                    </div>
+                    <div class="btn-field">
+                        <button type="button" id="signUpBtn">Sign Up</button>
+                        <button type="button" id="signInBtn" class="disable">Sign In</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!-- Because no framework beyond base JS is being used, this is where the logic to change what gets displayed is done -->
+        <script>
+            let signUpBtn = document.getElementById("signUpBtn");
+            let signInBtn = document.getElementById("signInBtn");
+            let nameField = document.getElementById("nameField");
+            let title = document.getElementById("title");
+
+            // The actual click function, hides the username field, changes title, and prioritizes signIn button style if clicked.
+            signInBtn.onclick = function(){
+                nameField.style.maxHeight = "0";
+                title.innerHTML = "Login";
+                signUpBtn.classList.add("disable");
+                signInBtn.classList.remove("disable");
+            }
+
+            // Same idea but reversed now for the Sign Up side of things
+            signUpBtn.onclick = function(){
+                nameField.style.maxHeight = "60px";
+                title.innerHTML = "Sign Up";
+                signUpBtn.classList.remove("disable");
+                signInBtn.classList.add("disable");
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
